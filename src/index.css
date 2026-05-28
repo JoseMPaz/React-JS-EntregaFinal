@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #121212;
+  color: #eaeaea;
+  font-family: system-ui, sans-serif;
+}
+
+/* Para que el footer quede abajo siempre: hay que mantener la estructura de header-main-footer */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+/* Y que main ocupe el mayor espacio disponible */
+main {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  width: 100%;
+  text-align: center;
+}
+
+.primary {
+  color: #eaeaea;
+}
+
+.secondary {
+  color: #b3b3b3;
+}
+
+.disabled {
+  color: #7a7a7a;
+}
+
+.btn {
+  background-color: #3b82f6;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #2563eb;
+}
+
+.btn:disabled {
+  background-color: #7a7a7a;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

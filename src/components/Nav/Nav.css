@@ -1,0 +1,58 @@
+.nav-list {
+  list-style: none;
+
+  display: flex;
+  justify-content: center;
+}
+.nav-list li {
+  font-size: 2rem;
+  margin: 0.5rem;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.incart {
+  background-color: red;
+  font-size: 1rem;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: top;
+  font-size: 12px;
+  font-weight: bold;  
+}
+
+.cart-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+
+  background-color: red;
+  color: white;
+
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 11px;
+  font-weight: bold;
+}

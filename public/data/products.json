@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Sistema de Cuadro",
+    "description": "Sistema de cuadro de bicicleta ligero y resistente, diseñado para ofrecer el máximo rendimiento y comodidad.",
+    "price": 400000,
+    "image": "/img/cuadro.jpeg"
+  },
+  {
+    "id": 2,
+    "name": "Sistema de Frenos",
+    "description": "Sistema de frenos de alto rendimiento diseñado para ofrecer la máxima potencia de detención y control en todas las condiciones de conducción.",
+    "price": 35000,
+    "image": "/img/sistema_frenos.jpeg"
+  },
+  {
+    "id": 3,
+    "name": "Sistema de Transmisión",
+    "description": "Sistema de transmisión eficiente y durable diseñado para ofrecer cambios suaves y máxima transferencia de potencia en cada recorrido.",
+    "price": 100000,
+    "image": "/img/sistema_transmision.jpeg"
+  },
+  {
+    "id": 4,
+    "name": "Sistema de Ruedas",
+    "description": "Sistema de ruedas de alto rendimiento diseñadas para durabilidad y el mejor desempeño en diversas superficies.",
+    "price": 50000,
+    "image": "/img/ruedas.jpeg"
+  },
+  {
+    "id": 5,
+    "name": "Sistema de Asiento",
+    "description": "Sistema de asiento ergonómico y cómodo diseñado para rides largos y máxima satisfacción al montar.",
+    "price": 20000,
+    "image": "/img/asiento.jpeg"
+  },
+  {
+    "id": 6,
+    "name": "Sistema Eléctrico",
+    "description": "Sistema eléctrico de alto rendimiento diseñada para desplazamientos urbanos y uso recreativo.",
+    "price": 800000,
+    "image": "/img/electrica.jpeg"
+  }
+]
