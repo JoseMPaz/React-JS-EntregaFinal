@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
+import { getProductById } from "../../services/productsService";
 
 export const ItemDetailContainer = () => 
 {
@@ -11,18 +12,8 @@ export const ItemDetailContainer = () =>
 
   useEffect(() => 
   {
-    fetch("/data/products.json") /* Realiza una solicitud fetch para obtener los datos de los productos desde un archivo JSON ubicado en la ruta "/data/products.json" */
-      .then((response) => response.json()) /* Convierte la respuesta de la solicitud fetch a formato JSON */
-      .then((data) => 
-      {
-        const item = data.find((element) => String(element.id) === id); /* Busca el producto en el array de productos utilizando el método find, comparando el ID del producto con el ID obtenido de los parámetros de la URL. Se convierte el ID del producto a string para asegurar la comparación correcta */
-        if (item) /* Si se encuentra el producto, actualiza el estado itemDetail con los detalles del producto utilizando la función setItemDetail y luego retorna para salir de la función */
-        {
-          setItemDetail(item); /* Actualiza el estado itemDetail con los detalles del producto encontrado utilizando la función setItemDetail */
-          return; /* Retorna para salir de la función después de actualizar el estado con los detalles del producto encontrado */
-        }
-        throw new Error("Elemento no encontrado"); /* Si no se encuentra el producto, lanza un error con el mensaje "Elemento no encontrado" */
-      })
+    getProductById(id) /* Llama a la función getProductById pasando el ID del producto para obtener los detalles del producto desde la base de datos o servicio */
+      .then((product) => setItemDetail(product)) /* Si la solicitud es exitosa, se actualiza el estado itemDetail con los detalles del producto obtenidos utilizando la función setItemDetail */
       .catch((error) => console.log(error)) /* Si ocurre un error durante la solicitud fetch o el procesamiento de los datos, se captura el error y se muestra en la consola utilizando console.log */
       .finally(() => setLoading(false)); /* Finalmente, independientemente de si la solicitud fetch fue exitosa o si ocurrió un error, se establece el estado loading en false utilizando la función setLoading para indicar que la carga ha finalizado */
   }, []);

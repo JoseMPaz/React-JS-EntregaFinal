@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ItemList } from "../ItemList/ItemList";
+import { getProducts } from "../../services/productsService";
 
 export const ItemListContainer = () => 
 {
@@ -11,8 +12,7 @@ export const ItemListContainer = () =>
   {
     setLoading(true);/* Establece loading en true al iniciar la solicitud */
 
-    fetch ("/data/products.json")/* Ruta relativa al directorio public*/
-      .then((response) => response.json())/* Convierte la respuesta a JSON */
+    getProducts()
       .then((data) => setProducts(data))/* Actualiza el estado con los productos obtenidos */
       .catch((error) => console.log("Hubo un error:", error))/* Maneja cualquier error que ocurra durante la solicitud */
       .finally(() => setLoading(false));/* Establece loading en false una vez que la solicitud se completa, ya sea con éxito o con error */
