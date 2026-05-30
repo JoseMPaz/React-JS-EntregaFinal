@@ -19,7 +19,7 @@ export const ItemListContainer = () =>
       .then((data) => setProducts(data))/* Actualiza el estado con los productos obtenidos */
       .catch((error) => console.log("Hubo un error:", error))/* Maneja cualquier error que ocurra durante la solicitud */
       .finally(() => setLoading(false));/* Establece loading en false una vez que la solicitud se completa, ya sea con éxito o con error */
-  }, []);
+  }, [category]);
  
   if (loading)/* Si loading es true, muestra un mensaje de carga */
     return <p>Cargando...</p>;
