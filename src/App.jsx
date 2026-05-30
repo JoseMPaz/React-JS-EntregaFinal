@@ -17,6 +17,7 @@ function App()
       <main>
         <Routes>
           <Route path="/" element={<ItemListContainer />} /> {/* Ruta para mostrar la lista de productos utilizando el componente ItemListContainer */}
+          <Route path="/category/:category" element={<ItemListContainer />} /> {/* Ruta para mostrar la lista de productos filtrada por categoría utilizando el ID de la categoría como parámetro en la URL */}
           <Route path="/product/:id" element={<ItemDetailContainer />} /> {/* Ruta para mostrar el detalle de un producto específico utilizando el ID del producto como parámetro en la URL */} 
           <Route path="/carrito" element={<CartView />} /> {/* Ruta para mostrar el carrito de compras, actualmente muestra un encabezado simple */}
         </Routes>

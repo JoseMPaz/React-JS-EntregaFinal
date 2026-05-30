@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
-import { getProductById } from "../../services/productsService";
+import { getByCategory, getProductById } from "../../services/productsService";
 
 export const ItemDetailContainer = () => 
 {
@@ -13,10 +13,10 @@ export const ItemDetailContainer = () =>
   useEffect(() => 
   {
     getProductById(id) /* Llama a la función getProductById pasando el ID del producto para obtener los detalles del producto desde la base de datos o servicio */
-      .then((product) => setItemDetail(product)) /* Si la solicitud es exitosa, se actualiza el estado itemDetail con los detalles del producto obtenidos utilizando la función setItemDetail */
-      .catch((error) => console.log(error)) /* Si ocurre un error durante la solicitud fetch o el procesamiento de los datos, se captura el error y se muestra en la consola utilizando console.log */
+      .then((data) => setItemDetail(data)) /* Si la solicitud es exitosa, se actualiza el estado itemDetail con los detalles del producto obtenidos utilizando la función setItemDetail */
+      .catch((err) => console.log(err)) /* Si ocurre un error durante la solicitud fetch o el procesamiento de los datos, se captura el error y se muestra en la consola utilizando console.log */
       .finally(() => setLoading(false)); /* Finalmente, independientemente de si la solicitud fetch fue exitosa o si ocurrió un error, se establece el estado loading en false utilizando la función setLoading para indicar que la carga ha finalizado */
-  }, []);
+  }, []);   
 
   if (loading) 
     return <p>Cargando...</p>; /* Si el estado loading es true, muestra un mensaje de "Cargando..." indicando que los datos están siendo cargados */

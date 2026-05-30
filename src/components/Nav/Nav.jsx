@@ -13,6 +13,24 @@ export const Nav = () =>
           <Link to={"/"}>Inicio</Link>
         </li>
         <li>
+          <Link to={"/category/frenos"}>Frenos</Link>
+        </li>
+        <li>
+          <Link to={"/category/estructura"}>Estructura</Link>
+        </li>
+        <li>
+          <Link to={"/category/transmision"}>Transmisión</Link>
+        </li>
+        <li>
+          <Link to={"/category/asiento"}>Asiento</Link>
+        </li>
+        <li>
+          <Link to={"/category/ruedas"}>Ruedas</Link>
+        </li>
+        <li>
+          <Link to={"/category/control"}>Control</Link>
+        </li>
+        <li>
           <Link to={"/carrito"} className="cart-link">
             <span className="cart-text">Carrito 🛒</span>
             {totalItems > 0 && ( <span className="cart-badge">{totalItems}</span> )} {/* Si el número total de items en el carrito es mayor que 0, se muestra un badge con el número total de items en el carrito utilizando un elemento span con la clase cart-badge. Si no hay items en el carrito, no se muestra el badge. */  }
