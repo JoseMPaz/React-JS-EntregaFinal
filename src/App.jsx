@@ -8,6 +8,8 @@ import { ItemListContainer } from "./components/ItemListContainer/ItemListContai
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
 import "./App.css";
 import { CartView } from "./components/Cart/CartView";
+import { ProductFormContainer } from "./components/adminComponents/ProductFormContainer";
+import { ProductSuccess } from "./components/adminComponents/ProductSuccess";
 
 function App() 
 {
@@ -20,6 +22,8 @@ function App()
           <Route path="/category/:category" element={<ItemListContainer />} /> {/* Ruta para mostrar la lista de productos filtrada por categoría utilizando el ID de la categoría como parámetro en la URL */}
           <Route path="/product/:id" element={<ItemDetailContainer />} /> {/* Ruta para mostrar el detalle de un producto específico utilizando el ID del producto como parámetro en la URL */} 
           <Route path="/carrito" element={<CartView />} /> {/* Ruta para mostrar el carrito de compras, actualmente muestra un encabezado simple */}
+          <Route path="/admin" element={<ProductFormContainer />} /> {/* Ruta para mostrar el formulario de administración para agregar nuevos productos utilizando el componente ProductFormContainer */}
+          <Route path="/success/:id" element={<ProductSuccess />} /> {/* Ruta para mostrar la página de éxito después de agregar un nuevo producto, utilizando el ID del producto como parámetro en la URL */}
         </Routes>
       </main>
       <Footer />

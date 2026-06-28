@@ -11,7 +11,7 @@ export const Header = () =>
       <div className="logo-container">
         <Link to={"/"}>
           <img src={logo} />
-          <span>Subsistemas de bicicletas</span>
+          <span>Tienda en Línea</span>
         </Link> 
       </div>
       <Nav />
