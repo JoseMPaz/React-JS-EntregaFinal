@@ -1,32 +1,50 @@
-import { Route, Routes } from "react-router-dom";
-
-import { Count } from "./components/Count/Count";
-import { Footer } from "./components/Footer/Footer";
-import { Header } from "./components/Header/Header";
+import { Navigate, Route, Routes } from "react-router-dom";
+import "./App.css";
 
 import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer";
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
-import "./App.css";
 import { CartView } from "./components/Cart/CartView";
 import { ProductFormContainer } from "./components/adminComponents/ProductFormContainer";
 import { ProductSuccess } from "./components/adminComponents/ProductSuccess";
+import { PublicLayout } from "./layouts/PublicLayout";
+import { AdminLayout } from "./layouts/AdminLayout";
+import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
+import { Dashboard } from "./components/adminComponents/Dashboard/Dashboard";
+import { Login } from "./components/Login/Login";
 
-function App() 
-{
+function App() {
   return (
     <>
-      <Header />
-      <main>
-        <Routes>
-          <Route path="/" element={<ItemListContainer />} /> {/* Ruta para mostrar la lista de productos utilizando el componente ItemListContainer */}
-          <Route path="/category/:category" element={<ItemListContainer />} /> {/* Ruta para mostrar la lista de productos filtrada por categoría utilizando el ID de la categoría como parámetro en la URL */}
-          <Route path="/product/:id" element={<ItemDetailContainer />} /> {/* Ruta para mostrar el detalle de un producto específico utilizando el ID del producto como parámetro en la URL */} 
-          <Route path="/carrito" element={<CartView />} /> {/* Ruta para mostrar el carrito de compras, actualmente muestra un encabezado simple */}
-          <Route path="/admin" element={<ProductFormContainer />} /> {/* Ruta para mostrar el formulario de administración para agregar nuevos productos utilizando el componente ProductFormContainer */}
-          <Route path="/success/:id" element={<ProductSuccess />} /> {/* Ruta para mostrar la página de éxito después de agregar un nuevo producto, utilizando el ID del producto como parámetro en la URL */}
-        </Routes>
-      </main>
-      <Footer />
+      <Routes>
+        {/* ----------------------RUTAS PUBLICAS -------------------------*/}
+        <Route element={<PublicLayout />}>
+          <Route path="/" element={<ItemListContainer />} />
+          {/* Ruta opcional para filtrar categorias */}
+          <Route path="/category/:category" element={<ItemListContainer />} />
+          <Route path="/product/:id" element={<ItemDetailContainer />} />
+          <Route path="/carrito" element={<CartView />} />
+        </Route>
+
+        {/* IMPORTAR EL COMPONENTE LOGIN */}
+        <Route path="/admin/login" element={<Login />} />
+       
+        {/* -----------------------------ADMIN--------------------------- */}
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminLayout />
+            </ProtectedRoute>
+          }
+        >
+          {/* Si el admin esta logueado, redirige a la ruta /admin/dashboard */}
+          <Route index element={<Navigate to={"dashboard"} />} />
+          <Route path="dashboard" element={<Dashboard />} />
+
+          <Route path="products/new" element={<ProductFormContainer />} />
+          <Route path="products/success/:id" element={<ProductSuccess />} />
+        </Route>
+      </Routes>
     </>
   );
 }

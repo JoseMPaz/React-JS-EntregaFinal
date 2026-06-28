@@ -22,4 +22,3 @@ const db = getFirestore(app)  // Export the database for components to use.
 const auth = getAuth(app) // Export the authentication for components to use.
 
 export { db, auth }
-
